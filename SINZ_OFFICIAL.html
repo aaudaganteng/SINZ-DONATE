@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<title>SINZ OFFICIAL</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#050505;--card:#101010;--line:#292929;--text:#fff;--muted:#999}
+body{
+  min-height:100vh;background:
+  radial-gradient(circle at 50% -10%,#252525 0%,transparent 32%),
+  linear-gradient(180deg,#080808,#030303 75%);
+  color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  display:flex;justify-content:center;overflow-x:hidden
+}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+background-size:35px 35px}
+.wrap{width:min(100%,520px);padding:34px 18px 28px;position:relative;z-index:1}
+.profile{text-align:center}
+.logo-ring{
+  width:112px;height:112px;margin:0 auto 18px;border-radius:50%;padding:4px;
+  background:conic-gradient(from 0deg,#151515,#777,#111,#555,#151515);
+  animation:spin 5s linear infinite;box-shadow:0 0 35px rgba(255,255,255,.08)
+}
+.logo{
+  width:100%;height:100%;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 25%,#252525,#070707 65%);
+  border:1px solid #333;font-weight:900;font-size:37px;letter-spacing:-3px;
+  animation:counter 5s linear infinite
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes counter{to{transform:rotate(-360deg)}}
+.name{font-size:29px;font-weight:850;letter-spacing:-1px;display:flex;align-items:center;justify-content:center;gap:8px}
+.verify{width:21px;height:21px;border-radius:50%;background:#1683ff;display:inline-grid;place-items:center;font-size:13px;font-weight:900;box-shadow:0 0 14px rgba(22,131,255,.35)}
+.bio{margin:8px auto 0;color:#aaa;font-size:14px;line-height:1.5;max-width:340px}
+.links{display:grid;gap:13px;margin-top:28px}
+.link{
+  position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;width:100%;
+  min-height:68px;padding:12px 16px;border:1px solid var(--line);border-radius:18px;
+  background:linear-gradient(145deg,#151515,#0b0b0b);color:white;text-decoration:none;
+  box-shadow:0 8px 30px rgba(0,0,0,.28);transition:.2s transform,.2s border-color,.2s background
+}
+.link:after{content:"";position:absolute;top:-60%;left:-80%;width:45%;height:220%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);transform:rotate(18deg);transition:.6s}
+.link:hover{transform:translateY(-2px);border-color:#484848;background:linear-gradient(145deg,#1a1a1a,#0d0d0d)}
+.link:hover:after{left:130%}
+.icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#1b1b1b;border:1px solid #303030;font-size:20px;flex:none}
+.info{flex:1;text-align:left}.title{font-size:15px;font-weight:800}.desc{font-size:12px;color:#8d8d8d;margin-top:3px}
+.arrow{color:#777;font-size:22px}
+.footer{text-align:center;color:#666;font-size:11px;margin-top:24px}
+.loader{
+  position:fixed;inset:0;background:rgba(3,3,3,.96);backdrop-filter:blur(14px);
+  display:none;align-items:center;justify-content:center;z-index:10
+}
+.loader.show{display:flex}
+.loaderbox{text-align:center}
+.spinner{width:48px;height:48px;border-radius:50%;border:3px solid #292929;border-top-color:#aaa;animation:spin .8s linear infinite;margin:0 auto 16px}
+.loading-title{font-weight:800;font-size:16px}.loading-sub{color:#777;font-size:12px;margin-top:5px}
+.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(20px);opacity:0;
+background:#151515;border:1px solid #333;color:#ddd;padding:10px 15px;border-radius:12px;font-size:12px;transition:.25s;z-index:20}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:380px){.wrap{padding-inline:14px}.name{font-size:25px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="profile">
+    <div class="logo-ring"><div class="logo">SZ</div></div>
+    <div class="name">SINZ OFFICIAL <span class="verify">✓</span></div>
+    <p class="bio">Official links &amp; update SINZ. Semua link resmi ada di sini.</p>
+  </section>
+
+  <section class="links">
+    <a class="link" href="#" data-key="channel">
+      <div class="icon">◉</div>
+      <div class="info"><div class="title">IKUTI SALURAN RESMI SINZ</div><div class="desc">Dapatkan update terbaru SINZ</div></div>
+      <div class="arrow">›</div>
+    </a>
+
+    <a class="link" href="#" data-key="tiktok">
+      <div class="icon">♪</div>
+      <div class="info"><div class="title">FOLLOW TIKTOK ADMIN</div><div class="desc">Konten &amp; info terbaru</div></div>
+      <div class="arrow">›</div>
+    </a>
+
+    <a class="link" href="#" data-key="donate">
+      <div class="icon">♥</div>
+      <div class="info"><div class="title">DONATE</div><div class="desc">Dukung perkembangan SINZ</div></div>
+      <div class="arrow">›</div>
+    </a>
+  </section>
+
+  <div class="footer">© 2026 SINZ OFFICIAL</div>
+</main>
+
+<div class="loader" id="loader">
+  <div class="loaderbox">
+    <div class="spinner"></div>
+    <div class="loading-title">Membuka link...</div>
+    <div class="loading-sub">Tunggu sebentar</div>
+  </div>
+</div>
+<div class="toast" id="toast">Link tidak tersedia</div>
+
+<script>
+/*
+  URL disimpan sebagai Base64 agar file tetap mandiri tanpa menampilkan
+  alamat panjang di source utama.
+*/
+const encoded = {
+  channel: "aHR0cHM6Ly93aGF0c2FwcC5jb20vY2hhbm5lbC8wMDI5VmI3cktocTN3dGI1M1FuYmVSM24=",
+  tiktok: "aHR0cHM6Ly93d3cudGlrdG9rLmNvbS9Ac2luei5saXZlP3JfMT0xJl90PVpTLTk5SThpTmFwM2xo",
+  donate: "aHR0cHM6Ly9zb2NpYWJ1enouY29tL3Npbnptb2JpL3RyaWJl"
+};
+const decode = s => atob(s);
+const loader = document.getElementById("loader");
+document.querySelectorAll(".link").forEach(a=>{
+  a.addEventListener("click",e=>{
+    e.preventDefault();
+    const url=decode(encoded[a.dataset.key]);
+    loader.classList.add("show");
+    setTimeout(()=>{ window.location.href=url; },850);
+  });
+});
+</script>
+</body>
+</html>
